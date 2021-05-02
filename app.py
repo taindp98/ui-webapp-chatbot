@@ -6,6 +6,7 @@ import requests
 
 app = Flask(__name__)
 app.static_folder = 'static'
+app.template_folder = 'templates'
 
 # @app.route("/")
 # def home():
