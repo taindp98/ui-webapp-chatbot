@@ -1,6 +1,7 @@
 # from chatbot import chatbot
 from flask import Flask, render_template, request
 import json
+import random
 import requests
 
 app = Flask(__name__)
@@ -13,11 +14,12 @@ def home():
 @app.route("/get")
 def get_bot_response():
     userText = request.args.get('msg')
-    api_url = 'http://0.0.0.0:6969/api/convers-manager'
-    # api_url = 'https://chatbot-hcmut.herokuapp.com/api/convers-manager'
+    # api_url = 'http://0.0.0.0:6969/api/convers-manager'
+    api_url = 'https://chatbot-hcmut.herokuapp.com/api/convers-manager'
     input_data = {}
     input_data['message'] = str(userText)
-    input_data['state_tracker_id'] = '1011'
+    # input_data['state_tracker_id'] = '1011'
+    input_data['state_tracker_id'] = str(random.randint(100000, 999999))
     r = requests.post(url=api_url, json=input_data)
     chatbot_respose = r.json()
     mess_response = [item.replace('\n', r'').replace(r'"',r'') for item in chatbot_respose['message']]
