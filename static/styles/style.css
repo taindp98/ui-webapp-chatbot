@@ -48,7 +48,7 @@ section .noi-dung .form h2{
     font-size: 1.5em;
     text-transform: uppercase;
     margin-bottom: 20px;
-    border-bottom: 4px solid #ff4584;
+    border-bottom: 4px solid #45c4ff;
     display: inline-block;
     letter-spacing: 1px;
     
@@ -81,7 +81,7 @@ section .noi-dung .form .input-form input{
     
 }
 section .noi-dung .form .input-form input[type="submit"]{
-    background: #ff4584;
+    background: #45c4ff;
     color: #fff;
     outline: none;
     border: none;
@@ -95,7 +95,7 @@ section .noi-dung .form .input-form input[type="submit"]{
 }
 
 section .noi-dung .form .input-form input[type="submit"]:hover{
-    background: #f53677;
+    background: #45c4ff;
 }
 section .noi-dung .form .nho-dang-nhap{
     margin-bottom: 10px;
@@ -108,7 +108,7 @@ section .noi-dung .form .input-form p{
 }
 
 section .noi-dung .form .input-form p a{
-    color: #ff4584;
+    color: #45c4ff;
 }
 
 section .noi-dung .form h3{
