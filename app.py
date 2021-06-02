@@ -49,17 +49,13 @@ def home():
 def get_bot_response():
     
     userText = request.args.get('msg')
+    userId = request.args.get('_id')
     # api_url = 'http://0.0.0.0:6969/api/convers-manager'
     api_url = 'https://chatbot-hcmut.herokuapp.com/api/convers-manager'
     input_data = {}
     input_data['message'] = str(userText)
-    # input_data['state_tracker_id'] = phone
-    input_data['state_tracker_id'] = request.cookies.get('uid')
-    a_session = requests.Session()
-    a_session.get('http://0.0.0.0:5000/')
-    session_cookies = a_session.cookies
-    cookies_dictionary = session_cookies.get_dict()
-    print('cookies_dictionary',cookies_dictionary)
+    input_data['state_tracker_id'] = userId
+    # print('>'*50,userId)
     # input_data['state_tracker_id'] = str(random.randint(100000, 999999))
     r = requests.post(url=api_url, json=input_data)
     chatbot_respose = r.json()

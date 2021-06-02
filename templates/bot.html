@@ -39,6 +39,7 @@
     </main>
     <!-- <div id="webchat" role="main"></div> -->
     <form class="msger-inputarea" autocomplete="off">
+      <input hidden type="text" class="msger-id" id="visitorId" value = "">
       <input type="text" class="msger-input" id="textInput" placeholder="Nhập tin nhắn của bạn...">
       <button type="submit" class="msger-send-btn">Gửi</button>
     </form>
@@ -52,6 +53,7 @@
     const msgerInput = get(".msger-input");
     const msgerChat = get(".msger-chat");
 
+    const msgerId  = get(".msger-id")
 
     // Icons made by Freepik from www.flaticon.com
     const BOT_IMG = "../static/img/logobkcrop.png";
@@ -63,11 +65,13 @@
       event.preventDefault();
 
       const msgText = msgerInput.value;
+      const _id = msgerId.value;
+
       if (!msgText) return;
 
       appendMessage(PERSON_NAME, PERSON_IMG, "right", [msgText]);
       msgerInput.value = "";
-      botResponse(msgText);
+      botResponse(msgText,_id);
     });
 
     function appendMessage(name, img, side, textList) {
@@ -104,12 +108,13 @@
       msgerChat.scrollTop += 500;
     }
 
-    function botResponse(rawText) {
+    function botResponse(rawText,visitorId) {
 
       // Bot Response
-      $.get("/get", { msg: rawText }).done(function (data) {
+      $.get("/get", { msg: rawText , _id: visitorId}).done(function (data) {
         console.log(rawText);
         console.log(data);
+        console.log(visitorId);
         const msgList = data.message_list;
         console.log(msgList)
         appendMessage(BOT_NAME, BOT_IMG, "left", msgList);
@@ -152,7 +157,10 @@
   function initFingerprintJS() {
     FingerprintJS.load({token: 'Wbr219mZHFwhJ3fDcTnw'})
       .then(fp => fp.get())
-      .then(result => console.log(result.visitorId));
+      .then(result => 
+      // console.log(result.visitorId)
+      {document.getElementById('visitorId').value = result.visitorId}
+      );
   }
 </script>
 <script
