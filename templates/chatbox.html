@@ -74,15 +74,17 @@
       //   Simple solution for small apps
       var additionHTML = "";
       var text = textList[0];
-      var label = "See more"
+      var label = "Xem thêm"
       if ((textList.length > 1) && (side === "left")){
-        var i, additionText = ""; 
+        var i, additionText = "<br>" ;
+        additionText += "Một số thông tin khác bạn có thể tham khảo: ";
+        additionText += "<br>";
         for(i = 1; i < textList.length; i++){
           additionText += textList[i] + "<br>";
         }
         var additionID = getDateID(new Date());
         additionHTML = `<div class="msg-text" id="D${additionID}", style="display: none">${additionText}</div>
-        <button id="B${additionID}" onclick="myFunction('${additionID}')">See More</button>`
+        <button id="B${additionID}" onclick="myFunction('${additionID}')">Xem thêm</button>`
       }
       const msgHTML = `
         <div class="msg ${side}-msg">
@@ -137,10 +139,10 @@
         var y = document.getElementById("B" + additionID)
         if (x.style.display === 'none') {
             x.style.display = 'block';
-            y.innerText = "See less";
+            y.innerText = "Thu gọn";
         } else {
             x.style.display = 'none';
-            y.innerText = "See more"
+            y.innerText = "Xem thêm"
         }
       }
     
