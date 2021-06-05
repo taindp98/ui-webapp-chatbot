@@ -51,7 +51,7 @@ def get_bot_response():
     userText = request.args.get('msg')
     userId = request.args.get('_id')
     # api_url = 'http://0.0.0.0:6969/api/convers-manager'
-    api_url = 'https://chatbot-hcmut.herokuapp.com/api/convers-manager'
+    api_url = 'https://api-bkbot.herokuapp.com/api/convers-manager'
     input_data = {}
     input_data['message'] = str(userText)
     input_data['state_tracker_id'] = userId
