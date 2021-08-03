@@ -93,7 +93,9 @@
             a.appendChild(linkText);
             a.title = textList[i];
             a.href = textList[i];
-            document.body.appendChild(a);
+            var msgBox = document.getElementByClassName("msg-text");
+            msgBox.appendChild(a);
+            // document.body.appendChild(a);
           }
           
         }
