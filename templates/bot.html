@@ -84,7 +84,18 @@
         additionText += "Một số thông tin khác bạn có thể tham khảo: ";
         additionText += "<br>";
         for(i = 1; i < textList.length; i++){
-          additionText += textList[i] + "<br>";
+          if (textList[i].startsWith('http') == false){
+            additionText += textList[i] + "<br>";
+          }
+          else{
+            var a = document.createElement('a');
+            var linkText = document.createTextNode(textList[i]);
+            a.appendChild(linkText);
+            a.title = textList[i];
+            a.href = textList[i];
+            document.body.appendChild(a);
+          }
+          
         }
         var additionID = getDateID(new Date());
         additionHTML = `<div class="msg-text" id="D${additionID}", style="display: none">${additionText}</div>
