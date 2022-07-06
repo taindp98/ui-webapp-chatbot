@@ -3,6 +3,8 @@
 ### Install Docker
 Follow this link: https://docs.docker.com/engine/install/ubuntu/
 
+Dive into Docker: https://www.freecodecamp.org/news/how-to-dockerize-a-flask-app/
+
   Note: fixbug "docker-permission-denied"
   ```
   $ chmod 777 /var/run/docker.sock
